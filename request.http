@@ -7,8 +7,8 @@ Content-Type: application/json
 {
     "data":
     {
-        "login":,
-        "password":
+        "login": "toto",
+        "password":"123"
     }
 } 
 
@@ -20,8 +20,8 @@ Content-Type: application/json
 {
     "data": 
     {
-        "login":,
-        "password":
+        "login":"toto",
+        "password":"123"
     }
 }
 ###
