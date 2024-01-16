@@ -1,0 +1,31 @@
+# http://localhost:3012 (llien localhost)
+
+POST http://localhost:3012/auth/connect
+# Accept: application/json
+Content-Type: application/json
+
+{
+    "login":,
+    "password":
+} 
+
+###
+
+POST http://localhost:3012/auth/add
+Content-Type: application/json
+
+{
+    "login":,
+    "password":
+}
+###
+
+GET http://localhost:3012/games
+Content-Type: application/json
+Authorization: localStorage
+
+###
+
+GET http://localhost:3012/users/check-auth
+Content-Type: application/json
+Authorization: localStorage
