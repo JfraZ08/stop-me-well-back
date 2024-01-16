@@ -5,8 +5,11 @@ POST http://localhost:3012/auth/connect
 Content-Type: application/json
 
 {
-    "login":,
-    "password":
+    "data":
+    {
+        "login":,
+        "password":
+    }
 } 
 
 ###
@@ -15,8 +18,11 @@ POST http://localhost:3012/auth/add
 Content-Type: application/json
 
 {
-    "login":,
-    "password":
+    "data": 
+    {
+        "login":,
+        "password":
+    }
 }
 ###
 
