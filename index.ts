@@ -3,8 +3,8 @@ import { Socket } from "socket.io-client";
 import { createServer } from "node:http";
 import { Server } from "socket.io";
 import { DataTypes } from 'sequelize';
-import sequelize from "sequelize/types/sequelize";
-import { showConnexion } from "./router/Connexion";
+import { Sequelize } from "sequelize/types/sequelize";
+import { showConnexion } from "./router/User";
 // import jwt from 'jsonwebtoken'
 
 
@@ -17,6 +17,13 @@ const sequelize = new Sequelize({
     dialect: 'sqlite',
     storage: 'db/database.sqlite'
   });
+
+  export const User = sequelize.define('user', {
+      login : DataTypes.STRING,
+      password : DataTypes.STRING
+    }, {
+      timestamps: false
+    })
 io.on('connection', (socket) => {
     Players.push(socket)
     if(Players.length===2){
@@ -24,12 +31,6 @@ io.on('connection', (socket) => {
     }
 });
 
-export const showConnexion = sequelize.('connexion', {
-    login : DataTypes.STRING,
-    password : DataTypes.STRING
-  }, {
-    timestamps: false
-  })
 
 
 

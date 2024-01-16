@@ -15,7 +15,7 @@ UserRouter.post('http://localhost:3012/auth/connect', async (req, res) => {
         if(isSamePassword){
             const token = jwt.sign({userId: findUser.dataValues.id}, 'exact')
             res.json({
-                findConnexionRouteur,
+                findUser,
                 token
             });
         }else {
@@ -24,9 +24,9 @@ UserRouter.post('http://localhost:3012/auth/connect', async (req, res) => {
     }
 })
 
-ConnexionRouter.post('http://localhost:3012/auth/connect', async (req, res) => {
+UserRouter.post('http://localhost:3012/auth/add', async (req, res) => {
     console.log('res', req.body)
-    const findUser = await ConnexionRouter.findOne( { where : { email : req.body.identifier }})
+    const findUser = await User.findOne( { where : { email : req.body.identifier }})
     if(findUser){
         res.status(400).json('utilisateur existe déjà')
     }else{
