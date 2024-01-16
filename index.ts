@@ -7,13 +7,16 @@ import sequelize from "sequelize/types/sequelize";
 import { showConnexion } from "./router/Connexion";
 // import jwt from 'jsonwebtoken'
 
-const saltRounds = 10;
+
 const app = express();
 const server = createServer(app);
 const io = new Server(server);
 let Players: any[] = [];
-let nbTurns = 0;
 
+const sequelize = new Sequelize({
+    dialect: 'sqlite',
+    storage: 'db/database.sqlite'
+  });
 io.on('connection', (socket) => {
     Players.push(socket)
     if(Players.length===2){
@@ -21,7 +24,7 @@ io.on('connection', (socket) => {
     }
 });
 
-export const showConnexion = sequelize.define('connexion', {
+export const showConnexion = sequelize.('connexion', {
     login : DataTypes.STRING,
     password : DataTypes.STRING
   }, {

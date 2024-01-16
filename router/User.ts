@@ -1,11 +1,11 @@
 import { Router } from 'express';
-import { showConnexion } from '..';
+import { User } from '..';
 import { compare } from 'bcrypt';
 import jwt from 'jsonwebtoken';
 
-export const ConnexionRouter = Router();
+export const UserRouter = Router();
 
-ConnexionRouter.post('http://localhost:3012/auth/connect', async (req, res) => {
+UserRouter.post('http://localhost:3012/auth/connect', async (req, res) => {
     const findUser = await User.findOne( { where : { email : req.body.login }})
     if(!findUser){
         res.status(400).json({ error : "reponse"})
@@ -15,7 +15,7 @@ ConnexionRouter.post('http://localhost:3012/auth/connect', async (req, res) => {
         if(isSamePassword){
             const token = jwt.sign({userId: findUser.dataValues.id}, 'exact')
             res.json({
-                findUser,
+                findConnexionRouteur,
                 token
             });
         }else {
@@ -26,7 +26,7 @@ ConnexionRouter.post('http://localhost:3012/auth/connect', async (req, res) => {
 
 ConnexionRouter.post('http://localhost:3012/auth/connect', async (req, res) => {
     console.log('res', req.body)
-    const findUser = await User.findOne( { where : { email : req.body.identifier }})
+    const findUser = await ConnexionRouter.findOne( { where : { email : req.body.identifier }})
     if(findUser){
         res.status(400).json('utilisateur existe déjà')
     }else{
