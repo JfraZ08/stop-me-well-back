@@ -5,7 +5,7 @@ import { gamesRoutes }from './router/games';
 import { Sequelize } from "sequelize";
 import  bodyParser  from "body-parser";
 import cors = require("cors");
-import { Server } from "http";
+import { Server, createServer } from "http";
 
 export const sequelize = new Sequelize({
     dialect: 'sqlite',
@@ -14,20 +14,26 @@ export const sequelize = new Sequelize({
 
 
 sequelize.sync();
+// sequelize.sync({ force: true});
 
-const server = express();
-server.use(cors());
-server.use(bodyParser.json());
+const app = express();
+const server = createServer(app);
+const io = new Server(server);
+
+app.use(cors());
+app.use(bodyParser.json());
 
 const apiRouter = express.Router();
 apiRouter.use('/auth', authRoutes);
 apiRouter.use('games', gamesRoutes );
 apiRouter.use('/users', userRoutes);
 
-server.use("/api", apiRouter);
+server.use("/", apiRouter);
 
 server.listen(process.env.PORT, () => {
     console.log(`Example app listening on port ${process.env.PORT}!`)
   });
+
+
 
 

@@ -1,2 +1,5 @@
-import {games} from '..';
-import { Router } from 'express';
+import { Router } from "express";
+import { gamesRoutes } from "..";
+
+
+

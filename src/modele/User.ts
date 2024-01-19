@@ -1,8 +1,8 @@
 import { DataTypes, Sequelize } from "sequelize";
-import { sequelize } from "..";
+
 
 export const UserModel = (sequelize: Sequelize) => {
-    return sequelize.define('userModel', {
+    return sequelize.define('user', {
         login : DataTypes.STRING,
         password : DataTypes.STRING
     })
