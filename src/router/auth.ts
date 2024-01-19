@@ -8,6 +8,10 @@ const saltRounds = 10;
 
 export const authRoutes = Router();
 
+export interface IJwtInfo {
+    userId: number
+  }  
+
 authRoutes.post('/connect', async (req, res: any) => {
     const log = await User.findOne( { where : { login : req.body.login}})
     if (log) {
