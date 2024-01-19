@@ -8,7 +8,7 @@ const saltRounds = 10;
 
 export const authRoutes = Router();
 
-authRoutes.post('/connect'), async (req, res: any) => {
+authRoutes.post('/connect', async (req, res: any) => {
     const log = await User.findOne( { where : { login : req.body.login}})
     if (log) {
         const match = await bcrypt.compare(req.body.password, log.dataValues.password);
@@ -26,4 +26,18 @@ authRoutes.post('/connect'), async (req, res: any) => {
         res.status(400).json({ error : "Cet utilisateur n'existe pas"});
     }
 
+});
+
+authRoutes.post('/add', async (req, res) => {
+    const log = await User.findOne({where: {login: req.body.login}});
+    if (log) {
+        res.status(400).send('utilisateur existant');
+    } else {
+        const hash = await bcrypt.hash(req.body.password, saltRounds);
+        const newlog = await User.create({login: req.body.login, password: hash});
+        delete newlog.dataValues.password;
+        res.json({
+            newlog
+        });
+    }
 });
