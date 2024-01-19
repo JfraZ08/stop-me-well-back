@@ -38,3 +38,27 @@ gamesRoutes.post("/",middleware,async (req, res) => {
         newgame
     })
 });
+
+gamesRoutes.put("/:id",async (req, res) => {
+    const game = await Game.findOne({where: { id:req.params.id }});
+    if (game){
+        const upgame = await game.update(req.body);
+        res.status(200).json({
+            upgame
+        })
+    }else {
+        res.status(404).json({ error: "game not found" });
+    }
+    
+});
+
+gamesRoutes.delete("/:id", middleware,async (req, res) => {
+    const game = await Game.findOne({where: { id:req.params.id }});
+    if(game){
+        const delgame = await game.destroy();
+        res.status(200).json(delgame)
+    }
+    else {
+        res.status(400).json({ error: "game non trouve"})
+    }
+});
