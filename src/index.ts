@@ -4,7 +4,7 @@ import { IUser,userRoutes } from './router/users';
 import { gamesRoutes }from './router/games';
 import { Sequelize } from "sequelize";
 import  bodyParser  from "body-parser";
-import cors = require("cors");
+import cors from "cors";
 import { createServer } from "http";
 import { UserModel } from "./modele/User";
 import { GameModel } from "./modele/gameModel";

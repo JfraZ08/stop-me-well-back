@@ -1,4 +1,4 @@
-# http://localhost:3012 (llien localhost)
+
 
 POST http://localhost:3012/auth/connect
 # Accept: application/json
@@ -35,3 +35,40 @@ Authorization: localStorage
 GET http://localhost:3012/users/check-auth
 Content-Type: application/json
 Authorization: localStorage
+
+###
+
+GET http://localhost:3012/games/1
+Content-Type: application/json
+
+
+
+###  
+POST http://localhost:3012/games
+Content-Type: application/json
+
+
+{
+  "joueur1":"toto",
+  "joueur2":"tata",
+  "winner":"joueur1",
+  "bestTime":"41571369",
+  "objectif":"9"
+}
+
+###
+PUT http://localhost:3012/games/1
+Content-Type: application/json
+
+
+{
+  "joueur1":"tomtom",
+  "joueur2":"tomtomette",
+  "winner":"joueur2",
+  "bestTime":"4196489458",
+  "objectif":"2"
+}
+
+###  
+DELETE http://localhost:3012/games/3
+Content-Type: application/json

@@ -100,3 +100,45 @@ exports.gamesRoutes.post("/", checkToken_1.middleware, function (req, res) { ret
         }
     });
 }); });
+exports.gamesRoutes.put("/:id", function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var game, upgame;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0: return [4 /*yield*/, __1.Game.findOne({ where: { id: req.params.id } })];
+            case 1:
+                game = _a.sent();
+                if (!game) return [3 /*break*/, 3];
+                return [4 /*yield*/, game.update(req.body)];
+            case 2:
+                upgame = _a.sent();
+                res.status(200).json({
+                    upgame: upgame
+                });
+                return [3 /*break*/, 4];
+            case 3:
+                res.status(404).json({ error: "game not found" });
+                _a.label = 4;
+            case 4: return [2 /*return*/];
+        }
+    });
+}); });
+exports.gamesRoutes.delete("/:id", checkToken_1.middleware, function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var game, delgame;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0: return [4 /*yield*/, __1.Game.findOne({ where: { id: req.params.id } })];
+            case 1:
+                game = _a.sent();
+                if (!game) return [3 /*break*/, 3];
+                return [4 /*yield*/, game.destroy()];
+            case 2:
+                delgame = _a.sent();
+                res.status(200).json(delgame);
+                return [3 /*break*/, 4];
+            case 3:
+                res.status(400).json({ error: "game non trouve" });
+                _a.label = 4;
+            case 4: return [2 /*return*/];
+        }
+    });
+}); });
