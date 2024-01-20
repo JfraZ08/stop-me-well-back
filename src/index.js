@@ -52,8 +52,8 @@ exports.sequelize = new sequelize_1.Sequelize({
     dialect: 'sqlite',
     storage: 'db/database.sqlite'
 });
-exports.sequelize.sync();
-// sequelize.sync({ force: true});
+// sequelize.sync();
+exports.sequelize.sync({ force: true });
 var app = (0, express_1.default)();
 var server = (0, http_1.createServer)(app);
 var io = new socket_io_1.Server(server);

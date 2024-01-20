@@ -16,8 +16,8 @@ export const sequelize = new Sequelize({
   });
 
 
-sequelize.sync();
-// sequelize.sync({ force: true});
+// sequelize.sync();
+sequelize.sync({ force: true});
 
 const app = express();
 const server = createServer(app);
