@@ -1,8 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.GameModel = void 0;
-var sequelize_1 = require("sequelize");
-var GameModel = function (sequelize) {
+const sequelize_1 = require("sequelize");
+const GameModel = (sequelize) => {
     return sequelize.define('games', {
         joueur1: sequelize_1.DataTypes.STRING,
         joueur2: sequelize_1.DataTypes.STRING,

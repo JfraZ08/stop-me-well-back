@@ -1,9 +1,9 @@
 {
     "compilerOptions": {
-        "module": "commonjs",
-        "allowSyntheticDefaultImports": true,
-    },
-    "exclude": [
-        "node_modules"
-    ]
-}
+      "module": "commonjs",
+      "esModuleInterop": true,
+      "outDir": "dist",
+      "target": "es6",
+      "strict": true
+    }
+  }
