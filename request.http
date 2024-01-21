@@ -7,8 +7,8 @@ Content-Type: application/json
 {
     "data":
     {
-        "login": "toto",
-        "password":"123"
+        "login": "tomtom",
+        "password":"1234"
     }
 } 
 
@@ -20,32 +20,37 @@ Content-Type: application/json
 {
     "data": 
     {
-        "login":"toto",
-        "password":"123"
+        "login":"tomtom",
+        "password":"1234"
     }
 }
 ###
 
 GET http://localhost:3012/games
 Content-Type: application/json
-Authorization: localStorage
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTcwNTUyMDQyNn0.LjdK3oWFhRq2PK_8Nd4HtMQtMfqhdm_W_hGUeXMVaTA
 
 ###
 
 GET http://localhost:3012/users/check-auth
 Content-Type: application/json
-Authorization: localStorage
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTcwNTUyMDQyNn0.LjdK3oWFhRq2PK_8Nd4HtMQtMfqhdm_W_hGUeXMVaTA
+
 
 ###
 
 GET http://localhost:3012/games/1
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTcwNTUyMDQyNn0.LjdK3oWFhRq2PK_8Nd4HtMQtMfqhdm_W_hGUeXMVaTA
+
 
 
 
 ###  
 POST http://localhost:3012/games
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTcwNTUyMDQyNn0.LjdK3oWFhRq2PK_8Nd4HtMQtMfqhdm_W_hGUeXMVaTA
+
 
 
 {
@@ -59,6 +64,7 @@ Content-Type: application/json
 ###
 PUT http://localhost:3012/games/1
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTcwNTUyMDQyNn0.LjdK3oWFhRq2PK_8Nd4HtMQtMfqhdm_W_hGUeXMVaTA
 
 
 {
@@ -72,3 +78,4 @@ Content-Type: application/json
 ###  
 DELETE http://localhost:3012/games/3
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTcwNTUyMDQyNn0.LjdK3oWFhRq2PK_8Nd4HtMQtMfqhdm_W_hGUeXMVaTA
