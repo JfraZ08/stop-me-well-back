@@ -12,7 +12,7 @@ export interface IJwtInfo {
     userId: number
   }  
 
-authRoutes.post('/connect', async (req, res: any) => {
+authRoutes.post('/connect', async (req, res) => {
     const log = await User.findOne( { where : { login : req.body.login}})
     if (log) {
         const match = await bcrypt.compare(req.body.password, log.dataValues.password);

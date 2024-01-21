@@ -1,4 +1,4 @@
-import express from "express";
+import express from 'express';
 import { authRoutes } from './router/auth';
 import { IUser,userRoutes } from './router/users';
 import { gamesRoutes }from './router/games';
